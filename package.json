@@ -33,6 +33,8 @@
     "@types/react-redux": "^6.0.8",
     "@types/redux-logger": "^3.0.6",
     "@types/redux-thunk": "^2.1.0",
+    "@types/styled-components": "^3.0.1",
+    "tslint-config-airbnb": "^5.11.0",
     "typescript": "^3.0.3"
   }
 }

@@ -1,12 +1,13 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styledComponents from 'styled-components';
 
-import {IProps} from './types';
+import { IProps } from './types';
 
-const StyledDiv = styled.div`
+const STYLEDDIV = styledComponents.div`
   text-align: center;
 `;
 
-const Error: React.SFC<IProps> = ({error}) =>  (error ? <StyledDiv>Error try again</StyledDiv> : null);
+const ERROR: React.SFC<IProps> = ({ error }) =>
+  (error ? <STYLEDDIV>Error try again</STYLEDDIV> : null);
 
-export {Error};
+export { ERROR };

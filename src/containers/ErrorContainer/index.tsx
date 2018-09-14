@@ -1,10 +1,10 @@
-import {connect, MapStateToProps} from 'react-redux';
+import { connect, MapStateToProps } from 'react-redux';
 
-import {Error} from '../../components/Error';
+import { ERROR } from '../../components/Error';
 
-import {IStore} from '../../types/store';
-import {FromStore} from './types';
+import { IStore } from '../../types/store';
+import { FromStore } from './types';
 
-const mapStateToProps: MapStateToProps<FromStore, {}, IStore> = ({error}) => ({error});
+const mapStateToProps: MapStateToProps<FromStore, {}, IStore> = ({ error }) => ({ error });
 
-export const ErrorContainer = connect(mapStateToProps)(Error);
+export const ERRORCONTAYNER = connect(mapStateToProps)(ERROR);

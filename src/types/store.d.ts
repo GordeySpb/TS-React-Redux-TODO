@@ -1,3 +1,3 @@
 export interface IStore {
-    error: boolean;
+  error: boolean;
 }
