@@ -10,7 +10,6 @@ const STYLEDHEADER = styledComponents.header`
   color: white;
   background-color: #61dafb;
   text-align: center;
-  text-transform: uppercase;
 `;
 
 const STYLEDH1 = styledComponents.h1`
