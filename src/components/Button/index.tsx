@@ -1,9 +1,9 @@
 import * as React from 'react';
-import styledComponents from 'styled-components';
+import styled from 'styled-components';
 
 import { IProps } from './types.d';
 
-const STYLEDBUTTON = styledComponents.button`
+const StyledButton = styled.button`
   font-weight: bold;
   font-size: 15px;
   border-radius: 3px;
@@ -20,4 +20,6 @@ const STYLEDBUTTON = styledComponents.button`
     }
 `;
 
-export const BUTTON: React.SFC<IProps> = ({ name }) => (<STYLEDBUTTON>{name}</STYLEDBUTTON>);
+export const Button: React.SFC<IProps> = ({ name, onClick }) => (
+  <StyledButton type="button" onClick={onClick} >{name}</StyledButton>
+);

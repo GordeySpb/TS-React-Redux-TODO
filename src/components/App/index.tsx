@@ -1,10 +1,11 @@
 import * as React from 'react';
-import styledComponents from 'styled-components';
+import styled from 'styled-components';
 
-import { ERRORCONTAYNER } from '../../containers/ErrorContainer';
-import { HEADER } from '../Header';
+import { ErrorConatiner } from '../../containers/ErrorContainer';
+import { Header } from '../Header';
+import { Form } from '../Form';
 
-const STYLEDMAIN = styledComponents.main`
+const StyledMain = styled.main`
   background: #fff;
   width: 700px;
   margin: 50px auto;
@@ -15,11 +16,12 @@ const STYLEDMAIN = styledComponents.main`
 
 import './App.css';
 
-export const APP = () => {
+export const App = () => {
   return (
-    <STYLEDMAIN>
-      <HEADER title="TypeScript-TODO" />
-      <ERRORCONTAYNER />
-    </STYLEDMAIN>
+    <StyledMain>
+      <Header title="TypeScript-TODO" />
+      <ErrorConatiner />
+      <Form value="123" />
+    </StyledMain>
   );
 };
