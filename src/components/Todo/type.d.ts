@@ -1,11 +1,13 @@
-export interface IProps {
-  key: number;
-  id: number;
-  title: string;
-  completed: boolean;
+import {ITodo} from '../../types/todo';
+
+export interface IProps extends ITodo {
   onDelete: () => void;
   onEdit: () => void;
   onToggle: () => void;
+}
+
+export interface SProps {
+  completed: boolean;
 }
 
 export interface IState {

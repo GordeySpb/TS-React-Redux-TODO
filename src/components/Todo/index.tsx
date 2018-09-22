@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
-import { IProps, IState } from './type';
+import { IProps, IState, SProps } from './type';
 
-const StyledSpan = styled.span<{completed: boolean}>`
+const StyledSpan = styled.span<SProps>`
   margin-right: auto;
   ${({ completed }) => (completed
     ? `text-decoration: line-through;
