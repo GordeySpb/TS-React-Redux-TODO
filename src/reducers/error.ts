@@ -1,9 +1,11 @@
 import { Reducer } from 'redux';
 
-const initialState: boolean = false;
+import { IEror } from '../types/error';
+
+const initialState: IEror = false;
 
 // tslint:disable-next-line:max-line-length
-export const errorReducer: Reducer<boolean> = (state: boolean = initialState, { type, payload }) => {
+export const errorReducer: Reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     default:
       return state;

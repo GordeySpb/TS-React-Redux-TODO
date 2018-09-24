@@ -1,6 +1,6 @@
-import {ITodo} from '../../types/todo';
+import {ITodos} from '../../types/todos';
 
-export interface IProps extends ITodo {
+export interface IProps extends ITodos {
   onDelete: () => void;
   onEdit: () => void;
   onToggle: () => void;

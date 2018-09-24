@@ -1,9 +1,30 @@
 import { Reducer } from 'redux';
 
-const initialState: { id:number, title:string, completed:boolean }[] = [];
+import { TodoActions } from '../enums/actions/Todo';
+import { ITodos } from '../types/todos';
 
-export const todosReducer: Reducer = (state = initialState, { type, payload }) => {
+const initialState: { id: number, title: string, completed: boolean }[] = [];
+
+export const todosReducer: Reducer<ITodos[]> = (state = initialState, { type, payload }) => {
   switch (type) {
-    default: return state;
+    case TodoActions.ADD_TODOS:
+      return payload;
+
+    case TodoActions.ADD_TODO:
+      return [...state, payload];
+
+    case TodoActions.DELETE:
+      return state.filter(item => item.id !== payload.id);
+
+    case TodoActions.TOGGLE:
+      return state.map((item) => {
+        if (item.id === payload.id) {
+          return { ...payload };
+        }
+        return item;
+      });
+
+    default:
+      return state;
   }
 };

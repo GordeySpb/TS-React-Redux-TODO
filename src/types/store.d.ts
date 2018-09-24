@@ -1,3 +1,7 @@
+import { ITodos } from '../types/todos';
+import { IEror } from '../types/error';
+
 export interface IStore {
-  error: boolean;
+  error: IEror;
+  todos: ITodos[];
 }

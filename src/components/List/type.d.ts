@@ -1,7 +1,7 @@
-import {ITodo} from '../../types/todo'
+import {ITodos} from '../../types/todos'
 
 export interface IProps {
-  todos: ITodo[];
+  todos: ITodos[];
   onDelete: () => void;
   onEdit: () => void;
   onToggle: () => void;
