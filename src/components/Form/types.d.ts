@@ -1,5 +1,6 @@
 export interface IProps {
   value: string;
+  addTodo: (title: string) => void;
   
 }
 

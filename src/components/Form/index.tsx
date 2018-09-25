@@ -38,6 +38,13 @@ export class Form extends React.Component<IProps, IState> {
 
   private handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    const { title } = this.state;
+    const { addTodo } = this.props;
+
+    if (title) {
+      addTodo(title);
+      this.setState({ title: '' });
+    }
   }
 
   render() {

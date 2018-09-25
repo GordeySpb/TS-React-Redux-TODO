@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import { ErrorConatiner } from '../../containers/ErrorContainer';
 import { Header } from '../Header';
-import { Form } from '../Form';
+import FormContainer from '../../containers/FormContainer';
+import { SpinerContainer } from '../../containers/SpinerContainer';
 
 const StyledMain = styled.main`
   background: #fff;
@@ -21,7 +22,8 @@ export const App = () => {
     <StyledMain>
       <Header title="TypeScript-TODO" />
       <ErrorConatiner />
-      <Form value="123" />
+      <SpinerContainer />
+      <FormContainer value="123"/>
     </StyledMain>
   );
 };

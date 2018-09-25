@@ -1,8 +1,8 @@
-import {ITodos} from '../../types/todos'
+// import {ITodos} from '../../types/todos'
 
 export interface IProps {
-  todos: ITodos[];
-  onDelete: () => void;
-  onEdit: () => void;
-  onToggle: () => void;
+  todos: [];
+  onDelete: (id: number) => void;
+  onEdit: (title: string, id: number ) => void;
+  onToggle: (id: number) => void;
 }
