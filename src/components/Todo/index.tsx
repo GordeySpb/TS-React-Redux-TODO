@@ -51,7 +51,7 @@ const StyledTodoCompleted = styled.div<{completed: boolean}>`
 }
 `;
 
-const StyledButton = styled.button<{completed: boolean}>`
+const StyledButton = styled(Button)<{completed: boolean}>`
   ${({ completed }) => (completed
     ? `
     background-color: #ddd;
@@ -95,8 +95,8 @@ export class Todo extends React.Component<IProps, IState> {
   }
 
   handleDelete = () => {
-    // const { onDelete, id } = this.props;
-    // onDelete(id);
+    const { onDelete, id } = this.props;
+    onDelete(id);
   }
 
   renderDisplay = () => {
@@ -129,6 +129,6 @@ export class Todo extends React.Component<IProps, IState> {
   render () {
     const { isEditing } = this.state;
 
-    return isEditing ? this.renderForm : this.renderDisplay;
+    return isEditing ? this.renderForm() : this.renderDisplay();
   }
 }

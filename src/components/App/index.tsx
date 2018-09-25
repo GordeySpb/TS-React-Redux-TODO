@@ -5,6 +5,7 @@ import { ErrorConatiner } from '../../containers/ErrorContainer';
 import { Header } from '../Header';
 import FormContainer from '../../containers/FormContainer';
 import { SpinerContainer } from '../../containers/SpinerContainer';
+import  { ListContainer }  from '../../containers/ListContainer/index';
 
 const StyledMain = styled.main`
   background: #fff;
@@ -23,6 +24,7 @@ export const App = () => {
       <Header title="TypeScript-TODO" />
       <ErrorConatiner />
       <SpinerContainer />
+      <ListContainer />
       <FormContainer value="123"/>
     </StyledMain>
   );

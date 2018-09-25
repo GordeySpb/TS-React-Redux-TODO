@@ -14,11 +14,11 @@ export const todosReducer: Reducer<ITodos[]> = (state = initialState, { type, pa
       return [...state, payload];
 
     case TodoActions.DELETE:
-      return state.filter(item => item.id !== payload.id);
+      return state.filter(item => item.id !== +payload.id);
 
     case TodoActions.TOGGLE:
       return state.map((item) => {
-        if (item.id === payload.id) {
+        if (item.id === +payload.id) {
           return { ...payload };
         }
         return item;

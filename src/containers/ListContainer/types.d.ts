@@ -1,12 +1,14 @@
 import { Action } from 'redux';
+import { ISpiner } from'../../types/spiner';
+import { ITodos } from '../../types/todos';
 
 export interface FromStore {
-  todos: [];
-  spiner: boolean;
+  todos: ITodos[];
+  spiner: ISpiner;
 }
 
 export interface DispatchStore {
   onDelete: (payload: number) => Action;
-  onEdit: (payload: {title: string, id: number}) => Action;
+  onEdit: () => Action;
   onToggle: (payload: number) => Action;
 }
