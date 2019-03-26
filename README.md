@@ -1,1 +1,1 @@
-# TS React - Redux starting env for student
+# TS React - Redux Todo App
