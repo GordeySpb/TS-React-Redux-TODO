@@ -8,7 +8,7 @@ export interface FromStore {
 }
 
 export interface DispatchStore {
-  onDelete: (payload: number) => Action;
-  onEdit: () => Action;
+  onDelete: (id: number) => Action;
+  onEdit: (id: number, title: string) => Action;
   onToggle: (payload: number) => Action;
 }

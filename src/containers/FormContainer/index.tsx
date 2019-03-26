@@ -9,6 +9,4 @@ const mapDispatchToProps: MapDispatchToProps<DispatchStore, {}> = (dispatch: Dis
   bindActionCreators<DispatchStore, any>({ addTodo }, dispatch)
 );
 
-const FormContainer = connect(null, mapDispatchToProps)(Form);
-
-export default FormContainer;
+export const FormContainer = connect(null, mapDispatchToProps)(Form);

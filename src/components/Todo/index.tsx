@@ -74,20 +74,24 @@ export class Todo extends React.Component<IProps, IState> {
     };
   }
 
-  private textInput = React.createRef<HTMLInputElement>();
+  textInput = React.createRef<HTMLInputElement>();
 
   // tslint:disable-next-line:max-line-length
   handleSubmit = (event: React.FormEvent<HTMLFormElement>| React.MouseEvent<HTMLButtonElement>) => {
+    const { onEdit, id } = this.props;
     event.preventDefault();
 
-    // const { onEdit, id } = this.props;
-    // const title = this.textInput.current.value;
-    // console.log(title)
+    if (this.textInput.current) {
+      const title = this.textInput.current.value;
+      onEdit(id, title);
+
+      this.setState({ isEditing: false });
+    }
   }
 
   handleToggle = () => {
-    // const { onToggle, id } = this.props;
-    // onToggle(id);
+    const { onToggle, id } = this.props;
+    onToggle(id);
   }
 
   handleEdit = () => {
@@ -120,7 +124,7 @@ export class Todo extends React.Component<IProps, IState> {
 
     return (
       <StyledForm onSubmit={this.handleSubmit}>
-        <StyledInput type="text" ref={() => this.textInput} defaultValue={title} />
+        <StyledInput type="text" innerRef={this.textInput} defaultValue={title} />
         <Button name="Save" onClick={this.handleSubmit} />
       </StyledForm>
     );

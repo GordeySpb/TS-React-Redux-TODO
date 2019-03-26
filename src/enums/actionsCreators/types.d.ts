@@ -21,5 +21,5 @@ export type ToggleTodoType = {
 
 export type UpdateTodoType = {
   type: TodoActions;
-  payload: number | string;
+  payload: boolean | number | string;
 };

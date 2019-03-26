@@ -1,31 +1,38 @@
 import axios from 'axios';
 import { ThunkAction } from 'redux-thunk';
+import { Dispatch } from 'redux';
 
 import { TodoActions } from '../../enums/actions/Todo';
-import { Dispatch } from 'redux';
+import { SpinerAction } from '../../enums/actions/Spiner';
+import { ErrorAction } from '../../enums/actions/Error';
 import { IStore } from '../../types/store';
 import { AddTodosType, AddTodoType, DeleteTodoType, ToggleTodoType, UpdateTodoType } from './types';
+import { ITodos } from 'src/types/todos';
 
-export const addTodosAction = (payload: []) => ({ payload, type: TodoActions.ADD_TODOS });
+export const addTodosAction = (payload: ITodos[]) => ({ payload, type: TodoActions.ADD_TODOS });
 export const addTodoAction = (payload: string) => ({ payload, type: TodoActions.ADD_TODO });
 export const deleteTodoAction = (payload: number) => ({ payload, type: TodoActions.DELETE });
-export const toggleAction = (payload: boolean) => ({ payload, type: TodoActions.TOGGLE });
+// tslint:disable-next-line:max-line-length
+export const toggleAction = (payload: boolean | number | string) => ({ payload, type: TodoActions.TOGGLE });
 export const toggleErrorAction = (payload: boolean) => (
-  { payload, type: TodoActions.SET_ERROR_STATE }
+  { payload, type: ErrorAction.TOGGLE_ERROR }
 );
 export const toggleSpinerAction = (payload: boolean) => (
-  { payload, type: TodoActions.SET_PRELOADER_STATE }
+  { payload, type: SpinerAction.TOGGLE_SPINER }
 );
 
 // tslint:disable-next-line:max-line-length
 export const addTodos = (): ThunkAction<Promise<any>, IStore, {}, AddTodosType> => (dispatch: Dispatch) => {
+
   dispatch(toggleSpinerAction(true));
   return axios.get('/api/getTodos')
     .then(res => res.data)
     .then((todos) => {
       if (todos) {
         dispatch(addTodosAction(todos));
-      } else {
+      }
+      // tslint:disable-next-line:brace-style
+      else {
         dispatch(toggleErrorAction(true));
       }
     })
@@ -49,7 +56,7 @@ export const addTodo =  (payload: string): ThunkAction<Promise<any>, IStore, {},
         dispatch(toggleErrorAction(true));
       }
     })
-    .then(() => toggleSpinerAction(false))
+    .then(() => dispatch(toggleSpinerAction(false)))
     .catch((er) => {
       dispatch(toggleErrorAction(true));
       dispatch(toggleSpinerAction(false));
@@ -78,9 +85,8 @@ export const deleteTodo = (payload: number): ThunkAction<Promise<any>, IStore, {
 };
 
 // tslint:disable-next-line:max-line-length
-export const updateTodo =  (payload: string | number): ThunkAction<Promise<any>, IStore, {}, UpdateTodoType> => (dispatch: Dispatch) => {
+export const updateTodo =  (payload: boolean | number | string): ThunkAction<Promise<any>, IStore, {}, UpdateTodoType> => (dispatch: Dispatch) => {
   dispatch(toggleSpinerAction(true));
-
   return axios.put('api/updateTodo', { payload })
     .then(res => res.data)
     .then((todo) => {

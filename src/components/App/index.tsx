@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { ErrorConatiner } from '../../containers/ErrorContainer';
 import { Header } from '../Header';
-import FormContainer from '../../containers/FormContainer';
+import { FormContainer } from '../../containers/FormContainer';
 import { SpinerContainer } from '../../containers/SpinerContainer';
 import  { ListContainer }  from '../../containers/ListContainer/index';
 
@@ -25,7 +25,7 @@ export const App = () => {
       <ErrorConatiner />
       <SpinerContainer />
       <ListContainer />
-      <FormContainer value="123"/>
+      <FormContainer />
     </StyledMain>
   );
 };

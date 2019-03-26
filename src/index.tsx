@@ -4,8 +4,9 @@ import { Provider } from 'react-redux';
 
 import { App } from './components/App';
 import { store } from './store';
+import { addTodos } from './enums/actionsCreators';
 
-import './index.css';
+store.dispatch<any>(addTodos());
 
 ReactDOM.render(
   <Provider store={store}>
